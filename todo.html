@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>할 일 관리</title>
+</head>
+
+<body>
+
+    <h2>📋 할 일 목록</h2>
+
+    <form action="/add" method="post">
+        <label>
+            새 할 일:
+            <input type="text" name="task" required>
+        </label>
+        <button type="submit">추가</button>
+    </form>
+
+    <hr>
+
+    <ul>
+        <li>
+            <form action="/done" method="post" style="display:inline;">
+                <input type="hidden" name="task_id" value="1">
+                <button type="submit">완료</button>
+            </form>
+            공부하기
+        </li>
+
+        <li>
+            <form action="/done" method="post" style="display:inline;">
+                <input type="hidden" name="task_id" value="2">
+                <button type="submit">완료</button>
+            </form>
+            운동하기
+        </li>
+    </ul>
+
+</body>
+
+</html>
