@@ -1,5 +1,6 @@
 # render_template 함수를 추가로 불러옵니다.
 from flask import Flask, render_template
+from flask import request
 
 app = Flask(__name__)
 
@@ -29,6 +30,19 @@ def gugudan2():
     result = [f"{dan} x {i} = {dan * i}" for i in range(1, 10)]
     return render_template('gugudan2.html', dan=dan, result=result)
 
+@app.route('/gugudan3')
+def gugudan3():
+    dan = 5
+    result = [f"{dan} x {i} = {dan * i}" for i in range(1, 10)]
+    return render_template('gugudan/gugudan3.html', dan=dan, result=result)
+
+@app.route('/gugu', methods=['POST'])
+def gugu():
+    dan = request.form.get('dan', type=int)
+    results = []
+    for i in range(2, 10):
+        results.append(f"{dan} × {i} = {dan * i}")
+    return render_template('gugudan/gugu.html', dan=dan, results=results)
 
 @app.route('/profile')
 def profile():
