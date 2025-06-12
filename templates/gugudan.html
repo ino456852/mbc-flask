@@ -1,0 +1,16 @@
+<!-- templates/gugudan.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ dan }}단</title>
+</head>
+<body>
+    <h1>{{ dan }}단</h1>
+    <p>
+        {% for no in result %}
+            <p>{{ no }}</p>
+        {% endfor %}
+    </p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- templates/index.html -->
+
+...
+<body>
+    <h1>안녕하세요, {{ username }}님!</h1>
+    <p>이 페이지는 템플릿으로부터 왔습니다.</p>
+
+    <hr>
+    <h3>{{ username }}님의 취미 목록:</h3>
+    <ul>
+        {% for hobby in hobbies %}
+            <li>{{ hobby }}</li>
+        {% endfor %}
+    </ul>
+</body>
+...
