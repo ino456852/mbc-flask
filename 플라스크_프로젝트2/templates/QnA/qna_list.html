@@ -1,0 +1,12 @@
+{% extends "/qna/layout.html" %}
+{% block title %}질문 목록{% endblock %}
+{% block content %}
+    <a href="{{ url_for('qna_write') }}">[질문하기]</a>
+    <ul>
+        {% for q in qna_list %}
+        <li>
+            <a href="{{ url_for('qna_detail', id=q._id) }}">{{ q.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

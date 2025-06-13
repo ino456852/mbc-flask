@@ -1,0 +1,9 @@
+{% extends "/qna/layout.html" %}
+{% block title %}질문 작성{% endblock %}
+{% block content %}
+    <form method="POST">
+        <p>제목: <input type="text" name="title" required></p>
+        <p>내용: <textarea name="content" rows="5" required></textarea></p>
+        <button type="submit">작성</button>
+    </form>
+{% endblock %}
