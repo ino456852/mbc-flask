@@ -1,0 +1,14 @@
+{% extends "my_board/layout.html" %}
+
+{% block content %}
+<h2>게시글 목록</h2>
+{% if all_boards %}
+    게시물 있음
+    {%else%}
+    게시물 없음
+    {%endif%}
+
+    {% for brd in all_boards %}
+        <p>{{ brd.title }}</p>
+    {% endfor %}
+{% endblock %}

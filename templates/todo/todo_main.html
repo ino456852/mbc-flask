@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>할 일 관리</title>
+</head>
+<body>
+
+<h2>📋 할 일 목록</h2>
+
+<!-- 추가 폼 -->
+<form action="/todo_add" method="post">
+    <label>
+        새 할 일:
+        <input type="text" name="task" required>
+    </label>
+    <button type="submit">추가</button>
+</form>
+
+<hr>
+
+<!-- 할 일 목록 출력 -->
+<ul>
+    {% for task in tasks %}
+    <li>
+        <form action="/todo_del" method="post" style="display:inline;">
+            <input type="hidden" name="task_id" value="{{ task._id }}">
+            <button type="submit">완료</button>
+        </form>
+        {{ task.text }}
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

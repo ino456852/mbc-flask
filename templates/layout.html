@@ -1,0 +1,33 @@
+<!-- templates/layout.html -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>나만의 커뮤니티</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <header>
+        <h1><a href="/">My Community</a></h1>
+        <nav>
+            <a href="/">홈</a> | <a href="/profile">내 프로필</a>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        {% block center %}
+        <!-- 이 부분은 자식 템플릿이 채워넣을 공간입니다. -->
+        {% endblock %}
+    </main>
+    <hr>
+    <main>
+        {% block content %}
+        <!-- 이 부분은 자식 템플릿이 채워넣을 공간입니다. -->
+        {% endblock %}
+    </main>
+    <hr>
+    <footer>
+        <p>&copy; 2023 My First Flask Project.</p>
+    </footer>
+</body>
+</html>

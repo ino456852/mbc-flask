@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}기본 제목{% endblock %}</title>
+</head>
+<body>
+
+    <header>
+        <h1>📝 나의 블로그</h1>
+        <nav>
+            <a href="/">홈</a> |
+            <a href="/write">글쓰기</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- 하위 템플릿에서 채워질 콘텐츠 영역 -->
+        <h2>게시글 목록</h2>
+    <a href="{{ url_for('write') }}">새 글 작성하기</a>
+
+    <div class="post-list">
+        {% for post in posts %}
+            <div class="post-item">
+                <h3>{{ post.title }}</h3>
+                <p>{{ post.content | truncate(80) }}</p> <!-- 내용을 80자로 잘라서 보여줌 -->
+                <small>작성일: {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+            </div>
+        {% else %}
+            <p>아직 작성된 글이 없습니다.</p>
+        {% endfor %}
+    </div>
+        {% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>ⓒ 2025 나의 블로그. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
