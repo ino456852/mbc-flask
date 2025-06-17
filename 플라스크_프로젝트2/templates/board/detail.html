@@ -1,0 +1,27 @@
+<!-- templates/detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ post.title }} - 상세 보기</title>
+</head>
+<body>
+    <h1>게시물 상세 정보</h1>
+    <hr>
+    <h3>번호: {{ post.post_num }}</h3>
+    <h3>제목: {{ post.title }}</h3>
+    <p><strong>작성자:</strong> {{ post.author }}</p>
+    <p><strong>작성일:</strong> {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+    <hr>
+    <!-- pre 태그는 공백과 줄바꿈을 그대로 보여줍니다. -->
+    <pre>{{ post.content }}</pre>
+    <hr>
+
+    <!-- 수정과 삭제를 위한 링크/버튼 -->
+    <a href="/board/edit/{{ post.post_num }}">수정하기</a>
+    <form action="/board/delete" method="POST" style="display: inline;">
+        <input type="hidden" name="post_num" value="{{ post.post_num }}">
+        <button type="submit" onclick="return confirm('정말로 삭제하시겠습니까?');">삭제하기</button>
+    </form>
+    <a href="/board/list">목록으로</a>
+</body>
+</html>

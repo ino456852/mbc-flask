@@ -1,0 +1,20 @@
+<!-- templates/edit.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>게시물 수정</title>
+</head>
+<body>
+    <h1>게시물 수정하기</h1>
+    <!-- 수정된 내용은 /update 경로로 POST 방식으로 보냅니다 -->
+    <form action="/board/update" method="POST">
+        <!-- 어떤 게시물을 수정할지 번호를 숨겨서 보냅니다. -->
+        <input type="hidden" name="post_num" value="{{ post.post_num }}">
+
+        <p>작성자: <input type="text" name="author" value="{{ post.author }}"></p>
+        <p>제목: <input type="text" name="title" value="{{ post.title }}"></p>
+        <p>내용: <textarea name="content" rows="10">{{ post.content }}</textarea></p>
+        <button type="submit">수정 완료</button>
+    </form>
+</body>
+</html>
