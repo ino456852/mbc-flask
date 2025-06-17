@@ -1,18 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, abort
-from pymongo import MongoClient
-from bson.objectid import ObjectId
-from datetime import datetime
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb://localhost:27017/')
-
-db = client.todos # DB
-
+# 경로에 name이라는 URL 변수 받기
 @app.route('/greet/<name>')
 def greet(name):
-    name = 'Alice'
-    return f"Hello, {name}!"
+    return render_template("greeting.html", name=name)
 
 if __name__ == '__main__':
     app.run(debug=True)
