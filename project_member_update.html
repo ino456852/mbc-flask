@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>팀원 관리</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #1e3d58;
+      border-left: 6px solid #4b9cd3;
+      padding-left: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f1f3f5;
+      color: #333;
+    }
+
+    select, input[type="text"] {
+      padding: 6px;
+      font-size: 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      width: 90%;
+    }
+
+    .btn {
+      padding: 6px 10px;
+      font-size: 13px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 0 2px;
+    }
+
+    .btn-save {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+    }
+
+    .btn-save:hover {
+      background-color: #45a049;
+    }
+
+    .btn-delete {
+      background-color: #e53935;
+      color: white;
+      border: none;
+    }
+
+    .btn-delete:hover {
+      background-color: #c62828;
+    }
+  </style>
+
+  <script>
+    function saveStatus(rowId) {
+      const status = document.getElementById(`status-${rowId}`).value;
+      alert(`✅ 상태 저장됨: ${status}\n(예: 서버로 POST 요청 전송)`);
+
+      // 실제 구현에서는 fetch 또는 AJAX 요청을 보냄
+      // 예:
+      // fetch('/team/update', {
+      //   method: 'POST',
+      //   headers: { 'Content-Type': 'application/json' },
+      //   body: JSON.stringify({ id: rowId, status: status })
+      // });
+    }
+
+    function deleteMember(rowId) {
+      if (confirm("정말로 삭제하시겠습니까?")) {
+        alert(`❌ 팀원 ${rowId} 삭제됨\n(예: 서버로 DELETE 요청 전송)`);
+        // document.getElementById(`row-${rowId}`).remove(); // UI에서 제거
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>👥 팀원 관리</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>이름</th>
+          <th>이메일</th>
+          <th>역할</th>
+          <th>소속 프로젝트</th>
+          <th>상태</th>
+          <th>관리</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 예시 팀원 -->
+        <tr id="row-101">
+          <td>이수진</td>
+          <td>soo@company.com</td>
+          <td>프론트엔드</td>
+          <td>AI 분석 플랫폼</td>
+          <td>
+            <select id="status-101">
+              <option value="활동 중" selected>활동 중</option>
+              <option value="휴직">휴직</option>
+              <option value="퇴사">퇴사</option>
+            </select>
+          </td>
+          <td>
+            <button class="btn btn-save" onclick="saveStatus('101')">저장</button>
+            <button class="btn btn-delete" onclick="deleteMember('101')">삭제</button>
+          </td>
+        </tr>
+
+        <tr id="row-102">
+          <td>정다희</td>
+          <td>dahae@company.com</td>
+          <td>백엔드</td>
+          <td>웹 리뉴얼</td>
+          <td>
+            <select id="status-102">
+              <option value="활동 중">활동 중</option>
+              <option value="휴직" selected>휴직</option>
+              <option value="퇴사">퇴사</option>
+            </select>
+          </td>
+          <td>
+            <button class="btn btn-save" onclick="saveStatus('102')">저장</button>
+            <button class="btn btn-delete" onclick="deleteMember('102')">삭제</button>
+          </td>
+        </tr>
+        <!-- 추가 팀원은 반복 -->
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

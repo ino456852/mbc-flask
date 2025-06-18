@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>팀원 추가</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+
+    h2 {
+      font-size: 24px;
+      color: #1e3d58;
+      border-left: 6px solid #4b9cd3;
+      padding-left: 12px;
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-top: 16px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .info-box {
+      background-color: #f1f3f5;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 10px;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .info-box span {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    button {
+      margin-top: 30px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #4b9cd3;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #3a86b5;
+    }
+  </style>
+  <script>
+    // 예시용 회원 정보 DB (실제 프로젝트에서는 서버 연동 필요)
+    const memberData = {
+      "이수진": { email: "soo@company.com", role: "프론트엔드", project: "AI 분석 플랫폼" },
+      "정다희": { email: "dahae@company.com", role: "백엔드", project: "웹 리뉴얼" },
+      "김지훈": { email: "kim@company.com", role: "PM", project: "관리 시스템 개발" }
+    };
+
+    function updateMemberInfo() {
+      const name = document.getElementById("name").value;
+      const info = memberData[name];
+      if (info) {
+        document.getElementById("email").textContent = "이메일: " + info.email;
+        document.getElementById("role").textContent = "역할: " + info.role;
+        document.getElementById("project").textContent = "소속 프로젝트: " + info.project;
+      } else {
+        document.getElementById("email").textContent = "";
+        document.getElementById("role").textContent = "";
+        document.getElementById("project").textContent = "";
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>👤 팀원 추가</h2>
+    <form action="/team/add" method="POST">
+      <label for="name">이름</label>
+      <select id="name" name="name" onchange="updateMemberInfo()" required>
+        <option value="">-- 이름 선택 --</option>
+        <option value="이수진">이수진</option>
+        <option value="정다희">정다희</option>
+        <option value="김지훈">김지훈</option>
+      </select>
+
+      <div class="info-box">
+        <span id="email"></span>
+        <span id="role"></span>
+        <span id="project"></span>
+      </div>
+
+      <label for="status">상태</label>
+      <select id="status" name="status" required>
+        <option value="활동 중">활동 중</option>
+        <option value="연차">연차</option>
+        <option value="휴직">휴직</option>
+        <option value="퇴사">퇴사</option>
+      </select>
+
+      <button type="submit">✅ 팀원 등록</button>
+    </form>
+  </div>
+</body>
+</html>

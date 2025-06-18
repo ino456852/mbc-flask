@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <title>프로젝트 상세보기</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fb;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #1e3d58;
+      border-left: 6px solid #4b9cd3;
+      padding-left: 12px;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .button-group button {
+      background-color: #4b9cd3;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .button-group button:hover {
+      background-color: #3a86b5;
+    }
+
+    .detail {
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+
+    .detail-row {
+      display: flex;
+      margin-bottom: 12px;
+    }
+
+    .label {
+      width: 160px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .value {
+      flex: 1;
+      color: #333;
+    }
+
+    .status-tag {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: bold;
+      background-color: #ffe58f;
+      color: #ad6800;
+    }
+
+    .completed {
+      background-color: #d9f7be;
+      color: #389e0d;
+    }
+
+    .canceled {
+      background-color: #ffd6e7;
+      color: #c41d7f;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px 30px;
+      background-color: #1e3d58;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 12px;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-right a {
+      color: #cfe2f3;
+      margin-left: 10px;
+      text-decoration: none;
+    }
+
+    .footer-right a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>📌 프로젝트 상세보기</h2>
+      <div class="button-group">
+        <button onclick="location.href='member_manage.html'">👥 팀원 관리</button>
+        <button onclick="location.href='project_edit.html'">✏️ 수정</button>
+        <button onclick="confirm('정말 삭제하시겠습니까?')">🗑️ 삭제</button>
+      </div>
+    </div>
+
+    <div class="detail">
+      <div class="detail-row">
+        <div class="label">프로젝트명</div>
+        <div class="value">AI 분석 플랫폼 개발</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">클라이언트</div>
+        <div class="value">ABC Holdings</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">담당자</div>
+        <div class="value">김지훈</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">팀원</div>
+        <div class="value">이수진, 정하늘, 박준형</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">시작일</div>
+        <div class="value">2025-06-01</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">마감일</div>
+        <div class="value">2025-09-30</div>
+      </div>
+      <div class="detail-row">
+        <div class="label">진행 상태</div>
+        <div class="value"><span class="status-tag">진행 중</span></div>
+      </div>
+      <div class="detail-row">
+        <div class="label">프로젝트 설명</div>
+        <div class="value">AI 기반 데이터 분석 플랫폼을 개발하여 리포팅 자동화 및 시각화 구현.</div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
+        ⓒ 2025 MyCompany. All rights reserved.
+      </div>
+      <div class="footer-right">
+        <a href="#">개인정보처리방침</a> |
+        <a href="#">이용약관</a> |
+        <a href="#">고객센터</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
